@@ -1,19 +1,18 @@
 ;; Macros to clean up Perry Rhodan translations from Power Translator
 
-(if
+(cond
   ;; Mac
-  (equal "cbeust-macbookpro.local" (system-name)) (progn
+  ((equal "cbeust-macbookpro.local" (system-name)) (progn
     (setq system "mac")
-    (setq german-top-dir "/Users/cbeust/Documents/perry-rhodan"))
-  ;; PC1
-  (equal "CBEUST22-CORP" (system-name)) (progn
+    (setq german-top-dir "/Users/cbeust/Documents/perry-rhodan")))
+  ;; PCW
+  ((equal "CBEUST22-CORP" (system-name)) (progn
     (setq system "pcw")
-    (setq german-top-dir "c:/Documents and Settings/cbeust/My Documents/Perry Rhodan"))
+    (setq german-top-dir "c:/Documents and Settings/cbeust/My Documents/Perry Rhodan")))
   ;; default
-  (progn
+  (t (progn
     (setq system "other")
-    (setq german-top-dir "unknown"))
-)
+    (setq german-top-dir "unknown"))))
 
 (setq german-dir "c:/Users/cbeust/Documents/perry-rhodan/2400-2499")
 
