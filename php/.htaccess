@@ -1,0 +1,11 @@
+
+#RedirectMatch .*[0-9]+\.php$ "http://localhost/main.php"
+#RewriteRule ([0-9])+\.php$ "http://beust.com/p/main.php?heft=$1"
+
+RewriteEngine off
+
+RewriteRule ([0-9]+)\.php$ "http://beust.com/perry/php/displaySummary.php?heft=$1" [R]
+RewriteRule ([a-z]+$) "http://beust.com/perry/php/displayCycle.php?cycle=$1" [R]
+
+
+

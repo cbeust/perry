@@ -1,0 +1,272 @@
+800
+Die Kaiserin von Therm 
+The Emperess of Therm 
+William Voltz 
+801
+Sirenen des Alls 
+Sirens of Space 
+William Voltz 
+802
+Planet der toten Kinder 
+Planet of Dead Children 
+Clark Darlton 
+803
+Sta"tte des Vergessens 
+Site of Forgetfulness 
+Ernst Vlcek 
+804
+Der Zeithammer 
+The Time Hammer 
+Kurt Mahr 
+805
+Flucht von Intermezzo 
+Flight from Intermezzo 
+Kurt Mahr 
+806
+Der Marsianer und der MV 
+The Marsianer and the MV 
+H. G. Ewers 
+807
+Der Kampf um Terra 
+The Battle for Terra 
+H. G. Ewers 
+808
+Chaos auf Lusamuntra 
+Chaos on Lusamuntra 
+H. G. Francis 
+809
+Mensch aus dem Nichts 
+Men from the Void 
+Hand Kneifel 
+810
+Homo sapiens X7 
+Homo sapiens X7 
+William Voltz 
+811
+Begegnung auf Olymp 
+Encounter on Olymp 
+Peter Terrid 
+812
+Der Howalgonier 
+The Howalgonier 
+H. G. Francis 
+813
+Im Strom der Ewigkeit 
+In the Stream of Eternity 
+Clark Darlton 
+814
+Der Vario und der Wa"chter 
+The Vario and the Guard 
+Ernst Vlcek 
+815
+Der Sieben-D-Mann 
+The Seven-Dimensional Man 
+Kurt Mahr 
+816
+Meister der Gravitation 
+Master of Gravity 
+William Voltz 
+817
+Statthalter des Bösen 
+Governor of Evil 
+H. G. Ewers 
+818
+Die Gravo-Schleuse 
+The Gravity Lock 
+Hans Kneifel 
+819
+Die fleigende Stadt 
+The Flying City 
+William Voltz 
+820
+Das Gravitationsgefa"ngnis 
+The Gravity Prison 
+H. G. Ewers 
+821
+Die Gravo-Katastrophe 
+The Gravity Catastrophe 
+Hans Kneifel 
+822
+Ein Fremder auf Luna 
+A Stranger on Luna 
+Kurt Mahr 
+823
+Der Kampf um die Ironduke 
+The Battle for the Ironduke 
+Kurt Mahr 
+824
+Die Riesen von Halut 
+The Giant from Halut 
+H. G. Francis 
+825
+Die Amokmacher 
+The Frenzy Maker 
+H. G. Francis 
+826
+Kristalle der Gewalt 
+Crystal of Force 
+H. G. Francis 
+827
+Der Mann von Barkon 
+The Man from Barkon 
+Clark Darlton 
+828
+Götze der Wolklovs 
+Idols of the Wolklovs 
+Kurt Mahr 
+829
+Die List des Terraners 
+The List of the Terrans 
+William Voltz 
+830
+Die vierte Inkarnation 
+The Fourth Incarnation 
+William Voltz 
+831
+Patrouille der MVs 
+Patrol of the MV's 
+H. G. Ewers 
+832
+Station der MV's 
+Station of the MV's 
+H. G. Ewers 
+833
+Orbit um Terra 
+Orbit around Terra 
+Hans Kneifel 
+834
+Rebell gegen Es 
+Rebel against It 
+Ernst Vlcek 
+835
+Rückkehr der Vernuft 
+Return of Reason 
+H. G. Francis 
+836
+Vision der Vollendung 
+Vision of Completion 
+Ernst Vlcek 
+837
+Im Bann des Neutronsterns 
+In the Thrall of the Neutron Stars 
+Kurt Mahr 
+838
+Paradies der Feuerfleiger 
+Paradise of the Fire Fliers 
+Kurt Mahr 
+839
+Das groBe Feuerwerk 
+The Great Fireworks 
+Kurt Mahr 
+840
+Auf Bulloc's Spuren 
+On Bulloc's Trail 
+William Voltz 
+841
+Die Glaswelt 
+The Glass World 
+Clark Darlton 
+842
+Tor in die Unendlichkeit 
+Gate into Infinity 
+H. G. Francis 
+843
+Die Frühtra"umer 
+The Early Dreamer 
+H. G. Francis 
+844
+Fremde auf Olymp 
+Stranger on Olymp 
+H. G. Ewers 
+845
+Treibgut der Sterne 
+Flotsom of Stars 
+Hans Kneifel 
+846
+Die Flucht des Larens 
+The Flight of the Laren 
+Ernst Vlcek 
+847
+Metamorphose 
+Metamorphosis 
+H. G. Ewers 
+848
+Titan - die letzte Bastion 
+Titan - the Last Fortress 
+Kurt Mahr 
+849
+Sprung über den Abgrung 
+Leap over the Abgrung 
+Kurt Mahr 
+850
+Bardioc 
+Bardioc 
+William Voltz 
+851
+Kosmischer Alptraum 
+Cosmic Nightmare 
+William Voltz 
+852
+Insel zwischen den Sternen 
+Island between the Stars 
+Clark Darlton 
+853
+Heimat der Menschen 
+Home of Mankind 
+H. G. Francis 
+854
+Mutanten von Ga"a 
+Mutants from Ga"a 
+H. G. Francis 
+855
+Spektrum des Geistes 
+Spectrum of the Ghosts 
+Ernst Vlcek 
+856
+Treffpunkt Totenwelt 
+Meeting Place: Deadworld 
+H. G. Ewers 
+857
+Erbe der Aphilie 
+Heir of the Aphilie 
+Kurt Mahr 
+858
+Die Basis 
+The Base 
+Kurt Mahr 
+859
+Ring der Gewalt 
+Ring of Force 
+Hans Kneifel 
+860
+Rückkehr des Zeitlosen 
+Return of the Timeless Ones 
+William Voltz 
+861
+Gehirntransport 
+Brain Transport 
+William Voltz 
+862
+Eiswind der Zeit 
+Icy Wind of Time 
+Clark Darlton 
+863
+Die schlafende Göttin 
+The Sleeping Goddess 
+H. G. Francis 
+864
+Demeters Flucht 
+Demeter's Flight 
+H. G. Francis 
+865
+Kosmische Irrfahrt 
+Cosmic Deception 
+H. G. Ewers 
+866
+Aura des Unheils 
+Aura of Disaster 
+H. G. Ewers 
+867
+Bardioc und die Kaiserin 
+Bardioc and the Empress 
+H. G. Francis 

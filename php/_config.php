@@ -1,0 +1,37 @@
+<?
+
+$debug = false;
+
+$MY_EMAIL_ADDRESS = "cbeust@gmail.com";
+//$MY_EMAIL_ADDRESS = "cbeust@google.com";
+
+if ($debug) {
+  error_reporting(E_ALL);
+}
+
+$COOKIE_EXPIRATION = time() + 60*60*24*364;  // 1 year
+
+$MAIN_URL = "http://beust.com/perry/";
+
+$ALL_CYCLES_URL = $MAIN_URL . "php/allCycles.php";
+$QUERY_SUMMARY_URL = $MAIN_URL . "php/querySummary.php";
+$EDIT_SUMMARY_URL = $MAIN_URL . "php/editSummary.php";
+$SUBMIT_SUMMARY_URL = $MAIN_URL . "php/submitSummary.php";
+$DISPLAY_SUMMARY_URL = $MAIN_URL . "php/displaySummary.php";
+$DISPLAY_CYCLE_URL = $MAIN_URL . "php/displayCycle.php";
+$APPROVE_URL = $MAIN_URL . "php/_approve.php";
+$DOWNLOAD_URL = $MAIN_URL . "";
+$UPLOAD_URL = $MAIN_URL . "php/uploadFile.php";
+$LOGIN_URL = $MAIN_URL . "php/login.php";
+$LOGOUT_URL = $MAIN_URL . "php/logout.php";
+
+// Directories where issues can be found
+$ENGLISH = "en";
+$GERMAN = "ge";
+
+$RSS_FEED = "http://feeds.feedburner.com/PerryRhodanSummaries";
+
+$CSS_URL = $MAIN_URL . "summary.css";
+$BACKGROUND_URL = $MAIN_URL . "background.jpg";
+
+?>

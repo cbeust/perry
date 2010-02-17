@@ -1,0 +1,300 @@
+900
+Laire 
+William Voltz
+901
+Die Zweidenker 
+Ernst Vlcek
+902
+Das Mädchen und die Loower 
+Ernst Vlcek
+903
+Der Quellmeister 
+Kurt Mahr
+904
+Murcons Burg 
+Kurt Mahr
+905
+ Francis Sendboten des Alles-Rads 
+H.G
+906
+ Francis Das Gericht der Kryn 
+H.G
+907
+Das Weltraumbaby 
+Marianne Sydow
+908
+Aura des Friedens 
+William Voltz
+909
+Die Falle der Kryn 
+Hans Kneifel
+910
+Planet der Telepathen 
+Clark Darlton
+911
+Der Helk des Quellmeisters 
+Ernst Vlcek
+912
+Die Truppe der Berserker 
+Ernst Vlcek
+913
+ Ewers Im Land der Riesen 
+H.G
+914
+ Ewers Begegnung auf Zaltertepe 
+H.G
+915
+Murcons Vermächtnis 
+Kurt Mahr
+916
+Der Quellmeister und die Bestie 
+Kurt Mahr
+917
+Grenze im Nichts 
+William Voltz
+918
+Das Grab des Mächtigen 
+William Voltz
+919
+ Francis Duell mit dem Roboter 
+H.G
+920
+ Francis Insel der Vernichtung 
+H.G
+921
+Kontakt auf Scharzo 
+Clark Darlton
+922
+Invasion der Feuerkugeln 
+Marianne Sydow
+923
+Panik im Hyperraum 
+Ernst Vlcek
+924
+Lockruf der Psychode 
+Ernst Vlcek
+925
+ Ewers Boten der Finsternis 
+H.G
+926
+ Ewers Das Ladonnia-Psychod 
+H.G
+927
+Reigen der Paratender 
+Hans Kneifel
+928
+Solo für einen Androiden 
+Ernst Vlcek
+929
+Die Demonteure 
+William Voltz
+930
+Das Loch im Universum 
+William Voltz
+931
+Das strahlende Gefängnis 
+Kurt Mahr
+932
+Statue der Macht 
+Kurt Mahr
+933
+ Francis Ariolcs Vermächtnis 
+H.G
+934
+ Francis Gucky, der Mächtige 
+H.G
+935
+Mysterium des Weltalls 
+Clark Darlton
+936
+Die letzten Flibustier 
+Marianne Sydow
+937
+ Ewers Planet der Ebenbilder 
+H.G
+938
+ Ewers Armada der Orbiter 
+H.G
+939
+Das Rätsel von Lakikrath 
+Ernst Vlcek
+940
+Geburt einer Dunkelwolke 
+Ernst Vlcek
+941
+Pakt der Paratender 
+Ernst Vlcek
+942
+Der Margor-Schwall 
+Ernst Vlcek
+943
+Der Kybsoon-Effekt 
+Hans Kneifel
+944
+Planet der Puppen 
+William Voltz
+945
+Die Energiejäger 
+Kurt Mahr
+946
+Der sechste Schlüssel 
+Kurt Mahr
+947
+ Francis Der Matazema-Plan 
+H.G
+948
+ Francis Wohnsitz der Götter 
+H.G
+949
+Beherrscher der Tiere 
+Marianne Sydow
+950
+ Ewers Testfall Olymp 
+H.G
+951
+ Ewers Ultimatum der Orbiter 
+H.G
+952
+Die Höhlen der Ringwelt 
+William Voltz
+953
+Der Laser-Mann 
+Ernst Vlcek
+954
+Die Phantom-Jagd 
+Ernst Vlcek
+955
+Das Rätsel der Barriere 
+Clark Darlton
+956
+Niemandsland der Träume 
+Hans Kneifel
+957
+Der Traumplanet 
+Kurt Mahr
+958
+Die Gruft des Beschützers 
+Kurt Mahr
+959
+Der Loower und das Auge 
+Marianne Sydow
+960
+Das UFO-Serum 
+Marianne Sydow
+961
+ Ewers Der verrückte Orbiter 
+H.G
+962
+ Ewers Wächter der goldenen Stadt 
+H.G
+963
+Mission der Flibustier 
+Peter Griese
+964
+Schwingen des Geistes 
+Ernst Vlcek
+965
+Die Sporenschiffe 
+Ernst Vlcek
+966
+Der letzte der Mächtigen 
+Peter Terrid
+967
+Die Materiesenke 
+Clark Darlton
+968
+Exodus der Mutanten 
+Clark Darlton
+969
+Der falsche Ritter 
+William Voltz
+970
+Das Ende der Wächter 
+William Voltz
+971
+Alarm auf Martappon 
+Kurt Mahr
+972
+Die Stimme aus dem Nichts 
+Kurt Mahr
+973
+ Francis Das seltsame Genie 
+H.G
+974
+ Francis Wachfort SKARABÄUS 
+H.G
+975
+Die zweite Welle 
+Marianne Sydow
+976
+ Ewers Kämpfer für Garbesch 
+H.G
+977
+Kemoaucs Bestie 
+Ernst Vlcek
+978
+Heimkehr der Loower 
+Ernst Vlcek
+979
+Der Nachfolger 
+Peter Terrid
+980
+Schwerkraft-Alarm 
+Kurt Mahr
+981
+Helfer der Kosmokraten 
+Kurt Mahr
+982
+Der Auserwählte 
+William Voltz
+983
+Der Ort der Stille 
+Clark Darlton
+984
+ Ewers Waffen der Verdammnis 
+H.G
+985
+ Ewers Erzfeind der Orbiter 
+H.G
+986
+Das Ende der Sternenstadt 
+Marianne Sydow
+987
+Die sanften Invasoren 
+Marianne Sydow
+988
+ Francis Duell der Erbfeinde 
+H.G
+989
+ Francis Die Zukunft der Orbiter 
+H.G
+990
+Planet der Glücksbringer 
+Kurt Mahr
+991
+Die letzte Horde 
+Kurt Mahr
+992
+Bestienrummel 
+Peter Griese
+993
+Bastion der Bestien 
+Peter Terrid
+994
+ Ewers Problem Langzeitwaffe 
+H.G
+995
+ Ewers Der Kampf gegen die VAZIFAR 
+H.G
+996
+Der letzte Waffengang 
+Ernst Vlcek
+997
+Straße der Psychode 
+Ernst Vlcek
+998
+Terraner unerwünscht 
+Clark Darlton
+999
+ Francis Heimkehr 
+H.G
