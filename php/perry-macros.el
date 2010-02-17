@@ -95,14 +95,17 @@
 ))
 
 (defun german ()
+  "The main entry point to clean up all the issues found in the `german-dir` directory"
   (interactive)
   (execute 'perry-replace-dir german-dir german-replacements))
 
 (defun english ()
+  "The main entry point to clean up all the issues found in the `english-dir` directory"
   (interactive)
   (execute 'perry-replace-dir english-dir english-replacements))
 
 (defun execute (action dir strings)
+  "Apply the action to each file in the directory with the given strings"
   (interactive)
   (progn
     (setq lst (directory-files dir))
