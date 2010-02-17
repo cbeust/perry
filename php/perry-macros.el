@@ -15,11 +15,13 @@
     (setq top-dir "unknown")))
 )
 
-(setq german-dir (concat top-dir "/1400-1499"))
+;;(setq german-dir (concat top-dir "/1400-1499"))
+(setq german-dir (concat top-dir "/ge"))
 
 (setq german-replacements '(
     "-" " - "
     "\\emdash" " - "
+    "{\\u8212\\'97}" " "
 ))
 
 (setq english-dir (concat top-dir "/en"))
@@ -53,10 +55,12 @@
     "t_hey" "they"
     "h_himself" "himself"
 
+    ", that" " that"
     "-loose" "less"
     "amounted" "counted"
     "antigravschacht" "antigrav shaft"
     "attendants sie" "wait"
+    "area-harbor" "space port"
     "area-ship" "spaceship"
     "befell" "happened to"
     "cell - vibration - assets - gate" "cell activator"
@@ -80,6 +84,7 @@
     "shot for him through the head" "occurred to him"
     "shot for her through the head" "occurred to her"
     "something is" "what is"
+    "space-harbor" "space port"
     "state security service" "stasis"
     "stylish" "send"
     "shelf-storage" "onboard computer"
@@ -105,14 +110,14 @@
          (setq file (car lst))
          (setq lst (cdr lst))
          (if (not (or (string-match "~$" file) (member file '("." ".."))))
-           (funcall action (concat dir "/" file) strings)))))
+           (funcall action dir (concat dir "/" file) strings)))))
 
 (defun current-file ()
   "Return the filename (without directory) of the current buffer"
   (file-name-nondirectory (buffer-file-name (current-buffer)))
   )
 
-(defun perry-replace-dir (file strings)
+(defun perry-replace-dir (dir file strings)
   (interactive)
   (find-file file)
   (beginning-of-buffer)
@@ -122,7 +127,7 @@
       (perry-replace-strings (car strings) (car (cdr strings)))
       (setq strings (cdr (cdr strings)))))
   
-  (write-file (concat english-dir "/_clean " (current-file)))
+  (write-file (concat "../" dir "-clean/" (current-file)))
   (kill-buffer nil)
 )
 
@@ -137,13 +142,13 @@
   (log (format "Replacing %s with %s" from to))
   (beginning-of-buffer)
   (while (search-forward from nil t) (progn
-;;    (log "  Found match")
+    (log "  Found match")
     (replace-match to))))
 
 (defun debug ()
   (interactive)
   (beginning-of-buffer)
-  (while (search-forward "her/them" nil t) (progn
-;;    (log "  Found match")
-    (replace-match "them"))))
+  (while (search-forward "{\\u8212\\'97}" nil t) (progn
+    (log "  Found match")
+    (replace-match " "))))
   
