@@ -33,19 +33,24 @@ for ($i = 0; $i < count($englishFiles); $i = $i + 1) {
   $englishMap[$n] = substr($englishFiles[$i], $index);
 }
 
-echo "<table border='1'><tr><th>Number</th><th>Title</th><th>German</th><th>English</th></tr>";
+$newTable = "<table style='font-size: 80%;' border='1'><tr><th>Number</th><th>Download</th></tr>";
+
+echo "<table><tr valign='top'><td>";
+echo $newTable;
 
 sort($numbers);
 
 global $DOWNLOAD_URL;
 for ($i = 0; $i < count($numbers); $i++) {
   $n = $numbers[$i];
-  $title = cbFindGermanTitle($n);
+  if ($i != 0 && $i % 50 == 0) {
+    echo "</table></td>"
+      . "<td>" . $newTable;
+  }
   echo "<tr>"
       . "<td>" . $n . "</td>"
-      . "<td>" . $title . "</td>"
-      . "<td>" . cbGenDownload($germanMap[$n], $GERMAN, "Download") . "</td>"
-      . "<td>" . cbGenDownload($englishMap[$n], $ENGLISH, "Download") . "</td>"
+      . "<td>" . cbGenDownload($germanMap[$n], $GERMAN, "Ge") . " "
+      . cbGenDownload($englishMap[$n], $ENGLISH, "En") . "</td>"
       . "</tr>";
 }
 

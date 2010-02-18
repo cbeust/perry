@@ -1,6 +1,7 @@
 <?
 
-include "_config.php";
+include_once "_config.php";
+include_once "_orm.php";
 
 echo
      '<?xml version="1.0" encoding="iso-8859-1" ?>' . "\n"
