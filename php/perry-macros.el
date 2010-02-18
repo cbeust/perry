@@ -96,6 +96,7 @@
     "properly kept" "was right"
     "Raumhafens" "space port"
     "robotische" "robotized"
+    "sat down in connection with" "opened a connection with"
     "shot for him through the head" "occurred to him"
     "shot for her through the head" "occurred to her"
     "something is" "what is"

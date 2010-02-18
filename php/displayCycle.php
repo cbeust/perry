@@ -2,9 +2,12 @@
 
 include_once "_common.php";
 
-$cycle = $_GET['cycle'];
+$cycleNumber = $_GET['number'];
 
-$query = "SELECT * FROM cycles WHERE short_title = '$cycle'";
+if (is_null($cycleNumber)) exit;
+
+$query = "SELECT * FROM cycles WHERE number = '" . $cycleNumber . "'";
+
 $resultCycles = cbQuery($query);
 $englishTitle = mysql_result($resultCycles, 0, "english_title");
 $numRows = mysql_numrows($resultCycles);

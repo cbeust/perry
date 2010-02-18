@@ -150,13 +150,13 @@ function cbGenEditUrl($number, $content) {
     . $number . '">' . $content . '</a>';
 }
 
-function cbGenUrlCycle($cycle, $content) {
+function cbGenUrlCycle($number, $content) {
   global $DISPLAY_CYCLE_URL;
 
   return '<a href="'
 . $DISPLAY_CYCLE_URL
-. '?cycle='
-. $cycle . '">' . $content . '</a>'
+. '?number='
+. $number . '">' . $content . '</a>'
 ;
 }
 

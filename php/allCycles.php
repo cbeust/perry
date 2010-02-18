@@ -77,7 +77,6 @@ for ($i = 0; $i < $cycleCount; $i++) {
   $number = mysql_result($cycleRow, $i, "number");
   $start = mysql_result($cycleRow, $i, "start");
   $end = mysql_result($cycleRow, $i, "end");
-  $shortTitle = mysql_result($cycleRow, $i, "short_title");
   $germanTitle = mysql_result($cycleRow, $i, "german_title");
   $englishTitle = mysql_result($cycleRow, $i, "english_title");
   $summaryCount = cbCountSummariesForCycle($number);
@@ -88,7 +87,7 @@ for ($i = 0; $i < $cycleCount; $i++) {
   . '</td><td>'
   . $start . '-'. $end
   . '</td><td>'
-  . cbGenUrlCycle($shortTitle, $germanTitle)
+  . cbGenUrlCycle($i + 1, $germanTitle)
   . '</td><td>'
   . $englishTitle
   . '</td><td align="center">'
