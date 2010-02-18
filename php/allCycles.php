@@ -18,8 +18,18 @@ RSS feed
 <img src="http://beust.com/pics/feed-icon16x16.png"
      alt="http://feeds.feedburner.com/PerryRhodanSummaries" border="0"/>
 </a>
-<p>
-';
+ or jump directly to an issue:
+
+<table align="center">
+<tr align="center"><td>
+<form action = '
+. $DISPLAY_SUMMARY_URL 
+. ' method="get"><input type="text" name="number"></input>'
+. '<br>'
+. '<input type="submit" value="Show" />'
+. '</td></tr></table>'
+. '<p>'
+;
 
 $summaryPercentage = round(cbCountSummaries() * 100 / cbHeftCount());
 
