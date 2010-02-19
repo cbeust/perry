@@ -47,16 +47,6 @@ google_color_text = "FFCC00";
 ';
 }
 
-function cbBackground() {
-  global $BACKGROUND_URL;
-  return "\n"
-      . '<body text="#FFCC00" bgcolor="#FFFFFF" link="#33CCFF"'
-      . ' vlink="#cc00cc" alink="#FF0000" background="'
-      . $BACKGROUND_URL
-      . '">'
-      . "\n";
-}
-
 function cbCss() {
   return "\n"
       . '<link rel="stylesheet" href="http://beust.com/perry/summary.css" >'
@@ -91,14 +81,14 @@ function cbHeader($title, $pageTitle, $withRss) {
 . '</title>'
 . "\n"
 . ($withRss
-    ? '<link rel="alternate" type="application/rss+xml" title="RSS" href="' . $RSS_FEED . "/>"
+    ? '<link rel="alternate" type="application/rss+xml" title="RSS" href="' . $RSS_FEED . '"/>'
     : "")
 . "\n"
 . cbCss()
 . "\n"
 . '</head>'
 . "\n"
-. cbBackground()
+. "<body>\n"
 . cbLoginInfo()
 . "<h1 align='center'>" . $pageTitle . "</h1>"
 . "\n"

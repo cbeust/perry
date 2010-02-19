@@ -1,9 +1,19 @@
+body {
+  background-color: #ff0000;
+  background-image: url('background.jpg');
+  color: #ffcc00;
+}
+
+A:visited { color: #cc00cc; }
+A:link { color: #33ccff; }
+A:active { color: #ff0000; }
+
 INPUT {
-# background-color: #99ccff;
-color: black;
-font-family: arial, verdana, ms sans serif;
-font-weight: bold;
-font-size: 12pt
+  # background-color: #99ccff;
+  color: black;
+  font-family: arial, verdana, ms sans serif;
+  font-weight: bold;
+  font-size: 12pt
 }
 
 .number { font-size: 20 pt; font-weight: bold; color: #FF0000 }
