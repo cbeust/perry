@@ -123,7 +123,7 @@ function cbFindCycle($heft) {
   $n = mysql_numrows($res);
   $result = null;
   if ($n > 0) {
-    $result = mysql_result($res, 0, "short_title");
+    $result = mysql_result($res, 0, "number");
   }
 
   return $result;
