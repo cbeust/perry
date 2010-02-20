@@ -1,4 +1,6 @@
+;;
 ;; Macros to clean up Perry Rhodan translations from Power Translator
+;;
 
 (cond
   ;; Mac
@@ -9,6 +11,10 @@
   ((equal "CBEUST22-CORP" (system-name)) (progn
     (setq system "pcw")
     (setq top-dir "c:/Documents and Settings/cbeust/My Documents/Perry Rhodan/current")))
+  ;; PCH
+  ((equal "LEFT2" (system-name)) (progn
+    (setq system "pch")
+    (setq top-dir "c:/Users/cbeust/My Documents/Perry Rhodan/current")))
   ;; default
   (t (progn
     (setq system "other")
@@ -59,9 +65,11 @@
     "-loose" "less"
     "amounted" "counted"
     "antigravschacht" "antigrav shaft"
-    "attendants sie" "wait"
     "area-harbor" "space port"
     "area-ship" "spaceship"
+    "attendants sie" "wait"
+    "attendant" "wait"
+    "attendants still" "wait"
     "befell" "happened to"
     "cantarische" "Cantaros"
     "cell - vibration - assets - gate" "cell activator"
