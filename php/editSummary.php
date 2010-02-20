@@ -2,7 +2,7 @@
 
 include_once "_common.php";
 
-$number=$_GET['heft'];
+$number=$_GET['number'];
 $query = "SELECT * FROM hefte WHERE number = $number";
 $hefteRow = cbQuery($query);
 $numRows = mysql_numrows($hefteRow);

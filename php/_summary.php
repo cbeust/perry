@@ -72,7 +72,7 @@ function cbGenHtml($number, $title, $englishTitle, $author, $summary,
         ;
 
     } else {
-      global $MAIN_URL;
+      global $MAIN_URL, $EDIT_SUMMARY_URL;
       echo
         '</table>'
         . '<p align="center">'
@@ -81,7 +81,7 @@ function cbGenHtml($number, $title, $englishTitle, $author, $summary,
         . 'No summary was found for this issue.<br>
           You can <a href="'
         . $EDIT_SUMMARY_URL
-        . '?heft='
+        . '?number='
         . $number
         . '">submit one</a> or return to the '
 	. '<a href="' . $MAIN_URL . '">main page</a></p>';
