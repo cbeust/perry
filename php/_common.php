@@ -134,6 +134,10 @@ function cbGenUrl($number, $content) {
 . '">' . $content . '</a>';
 }
 
+function cbGenImg($src) {
+  return '<img border="0" src="' . $src . '"/>';
+}
+
 function cbGenEditUrl($number, $content) {
   global $EDIT_SUMMARY_URL;
   return '<a href="' . $EDIT_SUMMARY_URL . '?heft='

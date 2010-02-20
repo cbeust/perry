@@ -26,14 +26,29 @@ function cbDisplaySummary($number) {
     if ($date == null) $date = '';
   }
 
-  echo '
-    <table BORDER=0 CELLSPACING=0 COLS=3 WIDTH="100%" NOSAVE >
-    <tr valign="top" NOSAVE>
-    <td WIDTH="10%" NOSAVE></td>
-    ';
+  cbGenHtml($number, $title, $englishTitle, $author, $summary,
+      $summaryCount, $url, $authorName, $date);
+} // displaySummary
 
-  echo '
-    <td WIDTH="80%" NOSAVE>'
+/**
+ * Generate a link to the image cover
+ */
+function cbGenCover($url, $align) {
+  return
+      '<a href="' . $url  . '">'
+    . '<img style="padding: 10px;" align="' . $align
+    . '" border="0" width="200" height="250"'
+    . 'src="' . $url . '" />'
+    . '</a>';
+}
+
+/**
+ * Generate the HTML content for this summary.
+ */
+function cbGenHtml($number, $title, $englishTitle, $author, $summary,
+    $summaryCount, $url, $authorName, $date) {
+  echo
+    '<p align="center">'
     . "<p align='center'>"
     . cbGenSpan("number", $number)
     . ' - '
@@ -42,48 +57,109 @@ function cbDisplaySummary($number) {
     . cbGenSpan("english-title", $englishTitle)
     . "<br>"
     . cbGenSpan("author", $author)
+    . "<hr width='20%'/>"
     . "</p>"
-    . "<p align='right'>"
+    . "<htr>"
+    . "<table><tr><td>"
     ;
 
-    if ($authorName != null) {
-      echo cbGenSpanSmall("author", $authorName) . '<br>';
-    }
-    if ($date != null) {
-      echo cbGenSpanSmall("date", $date);
-    }
-
-    echo "</p>";
-
     if ($summaryCount > 0) {
-      echo cbGenSpan("text", $summary)
-      . '</td>
-        <td>
-        <a href="' . $url  . '">'
-      . '<img border="0" width="200" height="250" src="' . $url . '" />'
-      . '</td></tr></table'
-      ;
+      echo cbGenSpan("text", $summary);
+      echo '</td>'
+        . '<td valign="top">'
+	. cbGenCover($url, "right")
+        . '</td></tr></table>'
+        ;
+
+    } else {
+      global $MAIN_URL;
+      echo
+        '</table>'
+        . '<p align="center">'
+	. cbGenCover($url, "center")
+        . '<br>'
+        . 'No summary was found for this issue.<br>
+          You can <a href="'
+        . $EDIT_SUMMARY_URL
+        . '?heft='
+        . $number
+        . '">submit one</a> or return to the '
+	. '<a href="' . $MAIN_URL . '">main page</a></p>';
     }
 
-    else {
-      echo
-      '</table>'
-    . '<p align="center">'
-    . '<a href="' . $url  . '">'
-    . '<img border="0" width="200" height="250" src="' . $url . '"/></a>'
-    . '<br>'
-    . 'No summary was found for this issue.<br>
-    You can <a href="'
-    . $EDIT_SUMMARY_URL
-    . '?heft='
-    . $number
-    . '">submit one</a> or return to the <a href="http://beust.com/perry">main page</a></p>';
-  }
-
-
-} // displaySummary
+    echo '<p align="right">'
+      . (is_null($authorName) ? "" : cbGenSpanSmall("author", $authorName))
+      . (is_null($date) ? "" : " " . cbGenSpanSmall("date", $date))
+      . '</p>'
+      ;
+}
 
 function cbDisplayFooter($number, $withNextAndPrevious) {
+  global $LEFT_IMG, $RIGHT_IMG;
+  if ($withNextAndPrevious == 1) {
+    echo "\n"
+      . '<table width="100%">'
+      . '<tr>'
+      . "\n"
+      . '<td align="left">'
+      .  cbGenSpan("previous", cbGenUrl($number-1, cbGenImg($LEFT_IMG)))
+      . '</td>'
+      . "\n"
+      . '<td align="center">'
+      . "\n"
+      . cbGenUrlCycle(cbFindCycle($number), "Back to the cycle")
+      . "</td>"
+      . "\n"
+      . '<td align="right">'
+      .  cbGenSpan("previous", cbGenUrl($number+1, cbGenImg($RIGHT_IMG)))
+      . '</td>'
+      . '</tr>'
+
+      ;
+   } else {
+     echo cbGenUrlCycle(cbFindCycle($number), "Back to the main menu");
+   }
+
+  $extras = "";
+
+  $user = $_COOKIE["user"];
+  if (cbCanEdit($user)) {
+    $extras = $extras . "\n | " . cbGenEditUrl($number, "Edit this summary");
+  }
+
+  $german_file = cbGetGermanFile($number);
+  global $GERMAN;
+  if (cbCanDownload($user) && ! is_null($german_file)) {
+    $extras = $extras
+        . "\n | " . cbGenDownload($german_file, $GERMAN, "Download German");
+  } else if (cbCanUpload($user)) {
+    $extras = $extras
+        . "\n | " . cbGenUpload($GERMAN, $number, "Upload German");
+  }
+
+  $english_file = cbGetEnglishFile($number);
+  global $ENGLISH;
+  if (cbCanDownload($user) && ! is_null($english_file)) {
+    $extras = $extras
+        . "\n | " . cbGenDownload($english_file, $ENGLISH, "Download English");
+  } else if (cbCanUpload($user)) {
+    $extras = $extras
+        . "\n | " . cbGenUpload($ENGLISH, $number, "Upload English");
+  }
+
+  $extras = $extras . " |";
+
+  echo "<tr><td></td><td align='center'>" . $extras . "</td></tr></table>";
+
+  if ($withNextAndPrevious == 0) {
+    echo '<BR><BR>'
+      . '<HR WIDTH=\"100%\">'
+      . '<p>'
+    ;
+  }
+}
+
+function cbDisplayFooterOld($number, $withNextAndPrevious) {
   if ($withNextAndPrevious == 1) {
     echo '<BR><BR>'
       . '<HR WIDTH=\"100%\">'
@@ -93,7 +169,7 @@ function cbDisplayFooter($number, $withNextAndPrevious) {
       . "\n | " . cbGenSpan("previous", cbGenUrl($number+1, "Next episode"))
      ;
    } else {
-     echo cbGenUrlCycle(cbFindCycle($number), "Back to the main menu");
+     echo cbGenUrlCycle(cbFindCycle($number), "Back to the cycle");
    }
 
    $user = $_COOKIE["user"];

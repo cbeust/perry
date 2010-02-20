@@ -64,7 +64,7 @@ Started reading: '
 Finished reading: '
 . $summaryEnd
 . '<p>'
-. cbGenDisplaySummaries($start, $end, "Display all summaries")
+. cbGenDisplaySummaries($start, $end, "Display all the summaries on one page")
 ;
 
   echo '<p><TABLE BORDER=3>';

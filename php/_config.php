@@ -25,6 +25,9 @@ $UPLOAD_URL = $MAIN_URL . "php/uploadFile.php";
 $LOGIN_URL = $MAIN_URL . "php/login.php";
 $LOGOUT_URL = $MAIN_URL . "php/logout.php";
 
+$LEFT_IMG = $MAIN_URL . "agt_back-64.png";
+$RIGHT_IMG = $MAIN_URL . "agt_forward-64.png";
+
 // Directories where issues can be found
 $ENGLISH = "en";
 $GERMAN = "ge";
