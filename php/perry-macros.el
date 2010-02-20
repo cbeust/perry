@@ -1,4 +1,6 @@
+;;
 ;; Macros to clean up Perry Rhodan translations from Power Translator
+;;
 
 (cond
   ;; Mac
