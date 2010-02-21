@@ -62,7 +62,9 @@ function cbHasSummary($number) {
 
 
 function cbFindSummaryRow($number) {
-  $query = "SELECT * FROM summaries WHERE number = $number";
+  $lang = $_GET['lang'];
+  $table = $lang == "fr" ? "summaries_fr" : "summaries";
+  $query = "SELECT * FROM ." . $table . " WHERE number = $number";
   $result = cbQuery($query);
   $n = mysql_numrows($result);
   return $result;
