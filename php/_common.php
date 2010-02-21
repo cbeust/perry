@@ -140,7 +140,7 @@ function cbGenImg($src) {
 
 function cbGenEditUrl($number, $content) {
   global $EDIT_SUMMARY_URL;
-  return '<a href="' . $EDIT_SUMMARY_URL . '?heft='
+  return '<a href="' . $EDIT_SUMMARY_URL . '?number='
     . $number . '">' . $content . '</a>';
 }
 
