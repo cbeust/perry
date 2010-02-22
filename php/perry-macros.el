@@ -73,9 +73,11 @@
     "attendant" "wait"
     "attendants still" "wait"
     "befell" "happened to"
+    "draw lots" "let's go" ;; los jetzt
     "cantarische" "Cantaros"
     "cell - vibration - assets - gate" "cell activator"
     "cell-assets-fool" "cell activator"
+    "clear become" "figure out ;; klarwerden
     "drive around" "turn around"
     "drives around" "turns around"
     "drove around" "turned around"
@@ -125,8 +127,6 @@
     "shelf-storage" "onboard computer"
     "sturgeon-impulse" "surge pulse"
     "suitor terraner the league" "league of the free Terrans"
-    "syntronischen" "syntronic"
-    "syntronische" "syntronic"
     "tax-computer" "control computer"
     "Terraner" "Terran"
     "Terranerin" "Terran"
@@ -135,6 +135,10 @@
     "umbrella" "screen"
     "under-light-fast" "sublight speed"
     "use-" "mission "
+
+    "isch" "ic"
+    "ische" "ic"
+    "ischen" "ic"
 ))
 
 (defun german ()
