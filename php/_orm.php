@@ -64,6 +64,7 @@ function cbHasSummary($number) {
 function cbFindSummaryRow($number) {
   $lang = $_GET['lang'];
   $table = $lang == "fr" ? "summaries_fr" : "summaries";
+//  $table = "summaries_fr";
   $query = "SELECT * FROM ." . $table . " WHERE number = $number";
   $result = cbQuery($query);
   $n = mysql_numrows($result);
@@ -283,9 +284,10 @@ function cbRemoveFromPending($id) {
 }
 
 function cbGetAdminLevel($user) {
+  global $MAX_LEVEL;
   $query = "SELECT level FROM users WHERE login = '" . $user . "'";
   $rows = cbQuery($query);
-  $result = 5;
+  $result = $MAX_LEVEL;
   if (mysql_numrows($rows) > 0) {
     $result = mysql_result($rows, 0, "level");
   }
@@ -309,7 +311,7 @@ function cbGetUserInfo($user) {
     }
   } else {
     $name = $_GET["name"];
-    $email = "unknown@example.com";
+    $email = "";
     return array($name, $email);
   }
 }

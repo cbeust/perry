@@ -12,8 +12,8 @@ $number = $_POST['heftNumber'];
 $germanTitle = $_POST['germanTitle'];
 $englishTitle = $_POST['englishTitle'];
 $author = $_POST['author'];
-$authorName = $_POST['name'];
-$authorEmail = $_POST['email'];
+$authorName = $_POST['fullName'];
+$authorEmail = $_POST['emailAddress'];
 $summary = $_POST['summary'];
 $oldSummary = cbFindSummary($number);
 $cycle = $_POST['cycle'];
@@ -25,8 +25,10 @@ echo cbHeader("Summary has been submitted");
 
 if ($admin) {
   $id = cbGetUserInfo($user);
+  if (is_null($fullName)) $fullName = $id[0];
+  if (is_null($emailAddress)) $fullName = $id[1];
   cbUpdateSummaries($number, $germanTitle, $englishTitle,
-      $user, $id[0], $id[1], $date, $time, $summary, $published);
+      $user, $fullName, $emailAddress, $date, $time, $summary, $published);
   cbUpdateHeft($number, $germanTitle, $author);
   $redirectUrl = $DISPLAY_SUMMARY_URL . "?number=$number";
   cbRedirect($redirectUrl);
@@ -46,21 +48,23 @@ if (isset($_COOKIE['user'])) {
 if (! $admin || ($admin && $_COOKIE["user"] != "atlan")) {
   if ($admin) {
     $id = cbGetUserInfo($user);
+    if (is_null($fullName)) $fullName = $id[0];
+    if (is_null($emailAddress)) $fullName = $id[1];
     $subject = "New summary submitted in admin mode by "
         . $user
 	. " (" . $id[1] . ")"
 	. " : " . $number;
-    cbTrace("Sending mail from " . $id[0] . " " . $id[1]);
+    cbTrace("Sending mail from " . $fullName . " " . $emailAddress);
     global $MY_EMAIL_ADDRESS;
     mail($MY_EMAIL_ADDRESS,
         "New subject:" . $subject,
         $number . "\n". $germanTitle . "\n" . $englishTitle . "\n"
-        . $id[0] . "\n"
-        . $id[1] . "\n" . $date
+        . $fullName . "\n"
+        . $emailAddress . "\n" . $date
         . "\n" . $DISPLAY_SUMMARY_URL . "?number=" . $number
         . "\n=====\n" . $summary
         . "\n==== OLD SUMMARY ====\n" . $oldSummary
-        ,"Reply-to: " . $id[1] . "\r\n"
+        ,"Reply-to: " . $emailAddress . "\r\n"
     );
   }
   else {

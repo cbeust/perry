@@ -37,4 +37,7 @@ $RSS_FEED = "http://feeds.feedburner.com/PerryRhodanSummaries";
 $CSS_URL = $MAIN_URL . "summary.css";
 $BACKGROUND_URL = $MAIN_URL . "background.jpg";
 
+// Level for users that are not logged in
+$MAX_LEVEL = 5;
+
 ?>

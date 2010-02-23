@@ -12,6 +12,40 @@ if (isset($_COOKIE["user"])) {
   cbTrace("FOUND COOKIE FOR USER: $user");
 }
 
+$info = cbGetUserInfo($user);
+$fullName = is_null($info) ? null : $info[0];
+$emailAddress = is_null($info) ? null : $info[1];
+
+
+/**
+ * 3 cases:
+ * - Not logged in
+ * - Logged in but not admin
+ * - Admin
+ */
+function cbGenerateTextField($user, $textFieldName, $value, $editableIfNotLoggedIn) {
+  global $MAX_LEVEL;
+  $level = cbGetAdminLevel($user);
+  // The admin can always edit everything
+  $level = cbGetAdminLevel($user);
+
+  if ($level == 0) {
+    $readOnly == '';
+  } else if ($level == $MAX_LEVEL && $editableIfNotLoggedIn) {
+    $readOnly == '';
+  } else {
+    $readOnly = 'readonly = true';
+  }
+
+  return
+    '<input type="text"'
+    . $readOnly
+    . ' size="60" name="' . $textFieldName . '" value="'
+    . $value
+    . '"/>';
+}
+
+
 if (! isset($user)) {
   $user = "";
 }
@@ -53,12 +87,12 @@ else {
   <form action="'
   . $SUBMIT_SUMMARY_URL
   . '" method="post">'
+  . "\n"
   . '<h3><p align="center">Perry Rhodan #'
   . $number
-  . '<br>Cycle: 
-  <input type="text" cols="80" name="cycle" value="'
-  . $cycle
-  . '"</h3></p>';
+  . '<br>Cycle:'
+  . cbGenerateTextField($user, "cycle", $cycle, false /* only editable by admin */)
+  . '</h3></p>';
 
 
   echo '
@@ -145,20 +179,18 @@ Regular HTML, don\'t forget &lt;p&gt; between each paragraph.
 <td>
   Your name (optional):
 </td>
-<td>
-  <input type="text" size="60" name="name" value="'
-. $name
-. '"/>
-</td>
+<td>'
+. cbGenerateTextField($user, "fullName", $fullName, true /* editable if not logged in */)
+. '</td>
 </tr>
 
 <tr>
 <td>  
   Your email address (optional):
 </td>
-<td>
-  <input type="text" size="60" name="email" />
-  <br>
+<td>'
+. cbGenerateTextField($user, "emailAddress", $emailAddress, true /* editable if not logged in */)
+. '<br>
   <font size="-1"><em>Your email address will not appear on the Web site and 
   I will only use it to let you know when your summary becomes available.
   </em>
