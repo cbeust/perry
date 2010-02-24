@@ -4,8 +4,7 @@ include_once "_common.php";
 include_once "_db.php";
 
 function cbSummaryTable() {
-  $lang = $_GET['lang'];
-  if (is_null($lang)) $lang = $_POST['lang'];
+  $lang = cbLang();
   return is_null($lang) ? "summaries" : "summaries_" . $lang;
 }
 

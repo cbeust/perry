@@ -131,6 +131,7 @@ function cbGenUrl($number, $content) {
   return '<a href="'
 . $DISPLAY_SUMMARY_URL
 . '?number=' . $number 
+. cbLangParam()
 . '">' . $content . '</a>';
 }
 
@@ -204,6 +205,17 @@ function cbGetGermanFiles() {
 function cbGetEnglishFiles() {
   global $ENGLISH;
   return glob("../" . $ENGLISH . "/*");
+}
+
+function cbLang() {
+  $lang = $_GET['lang'];
+  if (is_null($lang)) $lang = $_POST['lang'];
+  return $lang;
+}
+
+function cbLangParam() {
+  $lang = cbLang();
+  return is_null($lang) ? "" : "&lang=" . $lang;
 }
 
 ?>

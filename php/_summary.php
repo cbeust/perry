@@ -98,10 +98,10 @@ function cbDisplayFooter($number, $withNextAndPrevious) {
   global $LEFT_IMG, $RIGHT_IMG;
   if ($withNextAndPrevious == 1) {
     echo "\n"
-      . '<table width="100%">'
+      . '<table align="center" width="50%" border="0">'
       . '<tr>'
       . "\n"
-      . '<td align="left">'
+      . '<td align="right">'
       .  cbGenSpan("previous", cbGenUrl($number-1, cbGenImg($LEFT_IMG)))
       . '</td>'
       . "\n"
