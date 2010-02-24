@@ -3,6 +3,12 @@
 include_once "_common.php";
 include_once "_db.php";
 
+function cbSummaryTable() {
+  $lang = $_GET['lang'];
+  if (is_null($lang)) $lang = $_POST['lang'];
+  return is_null($lang) ? "summaries" : "summaries_" . $lang;
+}
+
 function cbQuery($query) {
   global $host, $username, $password, $database;
 
@@ -62,8 +68,7 @@ function cbHasSummary($number) {
 
 
 function cbFindSummaryRow($number) {
-  $lang = $_GET['lang'];
-  $table = $lang == "fr" ? "summaries_fr" : "summaries";
+  $table = cbSummaryTable();
 //  $table = "summaries_fr";
   $query = "SELECT * FROM ." . $table . " WHERE number = $number";
   $result = cbQuery($query);
@@ -207,7 +212,9 @@ function cbUpdateSummaries($number, $germanTitle, $english_title,
 
   cbUpdateHeftAll($number, $germanTitle, $author, $published);
 
-  $existQuery = "SELECT * from summaries where number = $number";
+  $table = cbSummaryTable();
+
+  $existQuery = "SELECT * from " . $table . " where number = $number";
   $summariesRow = cbQuery($existQuery);
   $summariesRows = mysql_numrows($summariesRow);
   $english_title = s($english_title);
@@ -215,11 +222,11 @@ function cbUpdateSummaries($number, $germanTitle, $english_title,
 
   // Update summaries
   if ($summariesRows == 0) {
-    $query = "INSERT INTO summaries VALUES ($number , $english_title,
+    $query = "INSERT INTO " . $table . "  VALUES ($number , $english_title,
      '$author_name', '$author_email', '$date', $summary, '$time')";
   }
   else {
-    $query = "UPDATE summaries
+    $query = "UPDATE " . $table . " 
     SET english_title = $english_title,
     author_email = '$author_email',
     author_name = '$author_name',

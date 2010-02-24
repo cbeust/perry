@@ -30,7 +30,9 @@ if ($admin) {
   cbUpdateSummaries($number, $germanTitle, $englishTitle,
       $user, $fullName, $emailAddress, $date, $time, $summary, $published);
   cbUpdateHeft($number, $germanTitle, $author);
-  $redirectUrl = $DISPLAY_SUMMARY_URL . "?number=$number";
+  $lang = $_POST['lang'];
+  $redirectUrl = $DISPLAY_SUMMARY_URL . "?number=$number"
+    . (is_null($lang) ? "" : "&lang=" . $lang);
   cbRedirect($redirectUrl);
 } else {
   echo '<p align="center"><b>Your summary has been submitted to the administrator.  Once it has been approved, it will be available '

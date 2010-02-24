@@ -3,6 +3,7 @@
 include_once "_common.php";
 
 $number=$_GET['number'];
+$lang=$_GET['lang'];
 $query = "SELECT * FROM hefte WHERE number = $number";
 $hefteRow = cbQuery($query);
 $numRows = mysql_numrows($hefteRow);
@@ -160,19 +161,15 @@ Regular HTML, don\'t forget &lt;p&gt; between each paragraph.
 . $summary 
 . '</textarea>
   
-  <input type="hidden" name="heftNumber" value="'
-. $number  
-. '" />
-  <input type="hidden" name="time" value="'
-. $time
-. '" />
-  <input type="hidden" name="user" value="'
-. $user
-. '" />
-
-
-
-  <p>
+   <input type="hidden" name="heftNumber" value="' . $number . '" />'
+. "\n"
+. '<input type="hidden" name="time" value="' . $time . '" />'
+. "\n"
+. '<input type="hidden" name="user" value="' . $user. '" />'
+. "\n"
+. (is_null($lang) ? "" : '<input type="hidden" name="lang" value="' . $lang . '"/>')
+. "\n"
+. '<p>
 
 <table>
 <tr>

@@ -140,8 +140,11 @@ function cbGenImg($src) {
 
 function cbGenEditUrl($number, $content) {
   global $EDIT_SUMMARY_URL;
+  $lang = $_GET['lang'];
   return '<a href="' . $EDIT_SUMMARY_URL . '?number='
-    . $number . '">' . $content . '</a>';
+    . $number
+    . (is_null($lang) ? "" : "&lang=" . $lang)
+    . '">' . $content . '</a>';
 }
 
 function cbGenUrlCycle($number, $content) {
