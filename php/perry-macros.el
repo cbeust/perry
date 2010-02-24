@@ -2,7 +2,7 @@
 ;; Macros to clean up Perry Rhodan translations from Power Translator
 ;; 
 ;; To clean binary characters:
-;; ;; cat ~/t/dump|perl -pi -e "s/\xc3\xa2\xe2\x82\xac\xe2\x84\xa2/\\\'/g" >~/t/dump3
+;; cat ~/t/dump|perl -pi -e "s/\xc3\xa2\xe2\x82\xac\xe2\x84\xa2/\\\'/g" >~/t/dump3
 ;;
 
 (cond
@@ -80,7 +80,7 @@
     "cantarische" "Cantaros"
     "cell - vibration - assets - gate" "cell activator"
     "cell-assets-fool" "cell activator"
-    "clear become" "figure out ;; klarwerden
+    "clear become" "figure out" ;; klarwerden
     "drive around" "turn around"
     "drives around" "turns around"
     "drove around" "turned around"
@@ -133,11 +133,11 @@
     "tax-computer" "control computer"
     "Terraner" "Terran"
     "Terranerin" "Terran"
+    "toot sorry for me" "I'm sorry"
     "toot this" "sorry"
     "to the thunder-eather" "the hell"
     "umbrella" "screen"
     "under-light-fast" "sublight speed"
-    "use-" "mission "
 
     "isch" "ic"
     "ische" "ic"
@@ -192,16 +192,16 @@
 
 (defun perry-replace-strings (from to)
   (interactive)
-  (log (format "Replacing %s with %s" from to))
+;;  (log (format "Replacing %s with %s" from to))
   (beginning-of-buffer)
   (while (search-forward from nil t) (progn
-    (log "  Found match")
+;;    (log "  Found match")
     (replace-match to))))
 
 (defun debug ()
   (interactive)
   (beginning-of-buffer)
   (while (search-forward "{\\u8212\\'97}" nil t) (progn
-    (log "  Found match")
+;;    (log "  Found match")
     (replace-match " "))))
   
