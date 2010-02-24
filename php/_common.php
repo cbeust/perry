@@ -125,14 +125,18 @@ function cbGenSpanSmall($span, $content) {
   . "</span>\n";
 }
 
-function cbGenUrl($number, $content) {
+function cbGenUrlWithLang($number, $content, $lang) {
   global $DISPLAY_SUMMARY_URL;
 
   return '<a href="'
-. $DISPLAY_SUMMARY_URL
-. '?number=' . $number 
-. cbLangParam()
-. '">' . $content . '</a>';
+    . $DISPLAY_SUMMARY_URL
+    . '?number=' . $number
+    . $lang
+    . '">' . $content . '</a>';
+}
+
+function cbGenUrl($number, $content) {
+  return cbGenUrlWithLang($number, $content, cbLangParam());
 }
 
 function cbGenImg($src) {

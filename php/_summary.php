@@ -123,10 +123,33 @@ function cbDisplayFooter($number, $withNextAndPrevious) {
   $extras = "";
 
   $user = $_COOKIE["user"];
+
+  //
+  // English/French
+  //
+  if (cbIsAdmin($user)) {
+    $lang = cbLang();
+    if ($lang == "fr") {
+      $newLang = "";
+      $langText = "English";
+    } else {
+      $newLang = "fr";
+      $langText = "French";
+    }
+    $newLang = $lang == "fr" ? "" : "&lang=fr";
+    $extras = $extras . "\n | " . cbGenUrlWithLang($number, $langText, $newLang);
+  }
+
+  //
+  // Edit this summary
+  //
   if (cbCanEdit($user)) {
     $extras = $extras . "\n | " . cbGenEditUrl($number, "Edit this summary");
   }
 
+  //
+  // Download/upload German
+  //
   $german_file = cbGetGermanFile($number);
   global $GERMAN;
   if (cbCanDownload($user) && ! is_null($german_file)) {
@@ -137,6 +160,9 @@ function cbDisplayFooter($number, $withNextAndPrevious) {
         . "\n | " . cbGenUpload($GERMAN, $number, "Upload German");
   }
 
+  //
+  // Download/upload English
+  //
   $english_file = cbGetEnglishFile($number);
   global $ENGLISH;
   if (cbCanDownload($user) && ! is_null($english_file)) {
@@ -147,7 +173,7 @@ function cbDisplayFooter($number, $withNextAndPrevious) {
         . "\n | " . cbGenUpload($ENGLISH, $number, "Upload English");
   }
 
-  $extras = $extras . " |";
+  if ($extras != "") $extras = $extras . " |";
 
   echo "<tr><td></td><td align='center'>" . $extras . "</td></tr></table>";
 
