@@ -1,9 +1,6 @@
 ;;
 ;; Macros to clean up Perry Rhodan translations from Power Translator
 ;; 
-;; To clean binary characters:
-;; ;; cat ~/t/dump|perl -pi -e "s/\xc3\xa2\xe2\x82\xac\xe2\x84\xa2/\\\'/g" >~/t/dump3
-;;
 
 (cond
   ;; Mac
