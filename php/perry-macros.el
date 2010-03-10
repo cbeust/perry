@@ -1,6 +1,11 @@
 ;;
 ;; Macros to clean up Perry Rhodan translations from Power Translator
 ;; 
+;; To clean binary characters:
+;; cat ~/t/dump|perl -pi -e "s/\xc3\xa2\xe2\x82\xac\xe2\x84\xa2/\\\'/g" >~/t/dump3
+;;
+;; To run: M-x german or M-x english
+;;
 
 (cond
   ;; Mac
@@ -12,7 +17,7 @@
     (setq system "pcw")
     (setq top-dir "c:/Documents and Settings/cbeust/My Documents/Perry Rhodan/current")))
   ;; PCH
-  ((equal "LEFT2" (system-name)) (progn
+  ((equal "LEFT" (system-name)) (progn
     (setq system "pch")
     (setq top-dir "c:/Users/cbeust/My Documents/Perry Rhodan/current")))
   ;; default
@@ -73,15 +78,20 @@
     "attendant" "wait"
     "attendants still" "wait"
     "befell" "happened to"
+    "cross-ion" "Querion"
     "draw lots" "let's go" ;; los jetzt
+    "draws lots" "less"
     "cantarische" "Cantaros"
     "cell - vibration - assets - gate" "cell activator"
     "cell-assets-fool" "cell activator"
-    "clear become" "figure out ;; klarwerden
+    "cell-assets-gate" "cell activator"
+    "cell-assets-goal" "cell activator"
+    "clear become" "figure out" ;; klarwerden
     "drive around" "turn around"
     "drives around" "turns around"
     "drove around" "turned around"
     "chronopuls" "Chronopulse"
+    "debit that is" "does that mean" ;; Soll das heissen
     "election" "choice"
     "embankment" "wall"
     "estuary" "opening"
@@ -90,6 +100,7 @@
     "free-dealer" "Free Trader"
     "free dealer" "Free Trader"
     "gucky" "Pucky"
+    "heavily" "hardly"
     "hyper-area" "hyperspace"
     "it gives" "there is"
     "it gave" "there was"
@@ -99,15 +110,19 @@
     "heaven" "sky"
     "husbands" "men"
     "innern" "inside"
+    "introduce itself" "imagine"
     "is free with" "is going on with"
     "it gives" "there is"
     "long-distance-orientation" "long distance detection"
+    "marked" "Excellent" ;; Ausgezeichnet
     "marsianische" "Martian"
     "medo-roboter" "medo robot"
+    "mighty-ness-concentration" "sphere of influence"
     "most upper" "supreme"
+    "nature" "creature"
     "needed not" "didn't have"
     "opposite" "against"
-    "orientation-screen" "detection screen"
+    "orientation" "detection"
     "Pedokräfte" "Pedopower"
     "reputation" "shout"
     "respect" "detection"
@@ -118,6 +133,7 @@
     "Raumhafens" "space port"
     "robotische" "robotized"
     "sat down in connection with" "opened a connection with"
+    "sentence" "step"
     "shot for him through the head" "occurred to him"
     "shot for her through the head" "occurred to her"
     "something is" "what is"
@@ -130,11 +146,15 @@
     "tax-computer" "control computer"
     "Terraner" "Terran"
     "Terranerin" "Terran"
+    "toot sorry for me" "I'm sorry"
     "toot this" "sorry"
     "to the thunder-eather" "the hell"
     "umbrella" "screen"
     "under-light-fast" "sublight speed"
-    "use-" "mission "
+    "what is free" "what is going on"
+    "what was free" "what happened"
+    "whether" "maybe"
+    "you you" "you"
 
     "isch" "ic"
     "ische" "ic"
@@ -189,16 +209,16 @@
 
 (defun perry-replace-strings (from to)
   (interactive)
-  (log (format "Replacing %s with %s" from to))
+;;  (log (format "Replacing %s with %s" from to))
   (beginning-of-buffer)
   (while (search-forward from nil t) (progn
-    (log "  Found match")
+;;    (log "  Found match")
     (replace-match to))))
 
 (defun debug ()
   (interactive)
   (beginning-of-buffer)
   (while (search-forward "{\\u8212\\'97}" nil t) (progn
-    (log "  Found match")
+;;    (log "  Found match")
     (replace-match " "))))
   
