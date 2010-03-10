@@ -173,6 +173,15 @@ function cbDisplayFooter($number, $withNextAndPrevious) {
         . "\n | " . cbGenUpload($ENGLISH, $number, "Upload English");
   }
 
+  //
+  // Email
+  //
+  if (cbIsAdmin($user) && ! is_null($english_file)) {
+    global $DOWNLOAD_URL;
+    $path = "../en/" . $english_file;
+    $extras = $extras . "\n | " . cbGenEmailAttachment($path);
+  }
+
   if ($extras != "") $extras = $extras . " |";
 
   echo "<tr><td></td><td align='center'>" . $extras . "</td></tr></table>";
