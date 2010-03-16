@@ -26,16 +26,22 @@
     (setq top-dir "unknown")))
 )
 
-;;(setq german-dir (concat top-dir "/1400-1499"))
+;; Production
 (setq german-dir (concat top-dir "/ge"))
+(setq english-dir (concat top-dir "/en"))
+
+;; Debug
+;;(setq german-dir (concat top-dir "/tmp"))
+;;(setq english-dir "../tmp")
 
 (setq german-replacements '(
     "-" " - "
     "\\emdash" " - "
     "{\\u8212\\'97}" " "
+    "\\'bb" "\""
+    "\\'ab" "\""
 ))
 
-(setq english-dir (concat top-dir "/en"))
 
 (setq english-replacements '(
     ;; longer strings first
@@ -77,6 +83,7 @@
     "attendants sie" "wait"
     "attendant" "wait"
     "attendants still" "wait"
+    "ball-star-pile" "globular cluster" ;; Kugelsternhaufen
     "befell" "happened to"
     "cross-ion" "Querion"
     "draw lots" "let's go" ;; los jetzt
@@ -156,9 +163,7 @@
     "whether" "maybe"
     "you you" "you"
 
-    "isch" "ic"
-    "ische" "ic"
-    "ischen" "ic"
+    " - " "-"
 ))
 
 (defun german ()
