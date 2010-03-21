@@ -7,11 +7,13 @@
 ;; To run: M-x german or M-x english
 ;;
 
+(setq log-p t)
+
 (cond
   ;; Mac
   ((equal "cbeust-macbookpro.local" (system-name)) (progn
     (setq system "mac")
-    (setq german-top-dir "/Users/cbeust/Documents/perry-rhodan")))
+    (setq top-dir "/Users/cbeust/Documents/Perry Rhodan/current")))
   ;; PCW
   ((equal "CBEUST22-CORP" (system-name)) (progn
     (setq system "pcw")
@@ -30,6 +32,7 @@
 (setq german-dir (concat top-dir "/ge"))
 
 (setq german-replacements '(
+    "\\-" ""
     "-" " - "
     "\\emdash" " - "
     "{\\u8212\\'97}" " "
@@ -175,12 +178,13 @@
   "Apply the action to each file in the directory with the given strings"
   (interactive)
   (progn
-    (setq lst (directory-files dir))
+    (setq lst (directory-files dir () "rtf$"))
       (while lst
          (setq file (car lst))
+	 (log (concat "Found file " file))
          (setq lst (cdr lst))
          (if (not (or (string-match "~$" file) (member file '("." ".."))))
-           (funcall action dir (concat dir "/" file) strings)))))
+           (funcall action dir file strings)))))
 
 (defun current-file ()
   "Return the filename (without directory) of the current buffer"
@@ -189,36 +193,39 @@
 
 (defun perry-replace-dir (dir file strings)
   (interactive)
-  (find-file file)
+  (log (concat "perry-replace-dir dir:" dir " file:" file))
+  (find-file (concat dir "/" file))
   (beginning-of-buffer)
 
   (while strings
     (progn
       (perry-replace-strings (car strings) (car (cdr strings)))
       (setq strings (cdr (cdr strings)))))
-  
-  (write-file (concat "../" dir "-clean/" (current-file)))
+
+  (log (concat "Writing file:" (concat dir "-clean/" file)))
+  (write-file (concat dir "-clean/" file))
   (kill-buffer nil)
 )
 
 (defun log (s)
-  (save-excursion
-    (switch-to-buffer "*Deb*")
-    (insert-string s)
-    (insert-string "\n")))
+  (if log-p (progn
+    (save-excursion
+      (switch-to-buffer "*Deb*")
+      (insert-string s)
+      (insert-string "\n")))))
 
 (defun perry-replace-strings (from to)
   (interactive)
-;;  (log (format "Replacing %s with %s" from to))
+  (log (format "Replacing %s with %s" from to))
   (beginning-of-buffer)
   (while (search-forward from nil t) (progn
-;;    (log "  Found match")
+    (log "  Found match")
     (replace-match to))))
 
 (defun debug ()
   (interactive)
   (beginning-of-buffer)
   (while (search-forward "{\\u8212\\'97}" nil t) (progn
-;;    (log "  Found match")
+    (log "  Found match")
     (replace-match " "))))
   
