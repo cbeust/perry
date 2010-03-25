@@ -183,6 +183,13 @@ function cbGenDownload($path, $language, $text) {
   }
 }
 
+function cbGenEmailAttachment($file) {
+  global $MAIL_URL;
+  return '<a href="' . $MAIL_URL
+      . "?file=" . rawurlencode($file) . "&title=" . basename($file)
+      . '">' . "Send email" . '</a>';
+}
+
 function cbGenUpload($language, $number, $text) {
   global $UPLOAD_URL;
 
@@ -221,5 +228,61 @@ function cbLangParam() {
   $lang = cbLang();
   return is_null($lang) ? "" : "&lang=" . $lang;
 }
+
+function cbSendEmailWithAttachment($fileatt, $fileatt_name) {
+  $fileatt_type = "application/octet-stream"; // File Type
+
+  $email_from = "cedric@beust.com"; // Who the email is from
+  $email_subject = $fileatt_name;
+  $email_message = "Perry Rhodan " . $fileatt_name . "\n\n";
+  $email_to = "cbeust@kindle.com"; // Who the email is to
+  $headers = "From: ".$email_from;
+
+  $file = fopen($fileatt,'rb');
+  $data = fread($file,filesize($fileatt));
+  fclose($file);
+
+  $semi_rand = md5(time());
+  $mime_boundary = "==Multipart_Boundary_x{$semi_rand}x";
+
+  $headers .= "\nMIME-Version: 1.0\n" .
+    "Content-Type: multipart/mixed;\n" .
+    " boundary=\"{$mime_boundary}\"";
+
+  $email_message .= "This is a multi-part message in MIME format.\n\n" .
+    "--{$mime_boundary}\n" .
+    "Content-Type:text/html; charset=\"iso-8859-1\"\n" .
+    "Content-Transfer-Encoding: 7bit\n\n" .
+    $email_message . "\n\n";
+
+  $data = chunk_split(base64_encode($data));
+
+  $email_message .= "--{$mime_boundary}\n" .
+    "Content-Type: {$fileatt_type};\n" .
+    " name=\"{$fileatt_name}\"\n" .
+    "Content-Transfer-Encoding: base64\n\n" .
+    $data . "\n\n" .
+    "--{$mime_boundary}--\n";
+
+  $ok = mail($email_to, $email_subject, $email_message, $headers);
+//  $ok = 1;
+
+  if($ok) {
+    echo "<p>The file was successfully sent!<p>";
+
+/*
+    echo "<pre>To:" . $email_to
+      . "\nSubject:" . $email_subject
+      . "\nHeaders:" . $headers
+      . "\nMessage:" . $email_message
+      . "</pre>"
+      ;
+*/
+
+  } else {
+    die("Sorry but the email could not be sent. Please go back and try again!");
+  }
+}
+
 
 ?>

@@ -7,11 +7,13 @@
 ;; To run: M-x german or M-x english
 ;;
 
+(setq log-p t)
+
 (cond
   ;; Mac
   ((equal "cbeust-macbookpro.local" (system-name)) (progn
     (setq system "mac")
-    (setq german-top-dir "/Users/cbeust/Documents/perry-rhodan")))
+    (setq top-dir "/Users/cbeust/Documents/Perry Rhodan/current")))
   ;; PCW
   ((equal "CBEUST22-CORP" (system-name)) (progn
     (setq system "pcw")
@@ -35,6 +37,7 @@
 ;;(setq english-dir "../tmp")
 
 (setq german-replacements '(
+    "\\-" ""
     "-" " - "
     "\\emdash" " - "
     "{\\u8212\\'97}" " "
@@ -94,6 +97,7 @@
     "cell-assets-gate" "cell activator"
     "cell-assets-goal" "cell activator"
     "clear become" "figure out" ;; klarwerden
+    "country" "land"
     "drive around" "turn around"
     "drives around" "turns around"
     "drove around" "turned around"
@@ -117,9 +121,11 @@
     "heaven" "sky"
     "husbands" "men"
     "innern" "inside"
+    "introduce himself" "imagine"
     "introduce itself" "imagine"
     "is free with" "is going on with"
     "it gives" "there is"
+    "like many" "how many"
     "long-distance-orientation" "long distance detection"
     "marked" "Excellent" ;; Ausgezeichnet
     "marsianische" "Martian"
@@ -128,15 +134,19 @@
     "most upper" "supreme"
     "nature" "creature"
     "needed not" "didn't have"
+    "one writes" "in"
     "opposite" "against"
     "orientation" "detection"
     "Pedokräfte" "Pedopower"
     "reputation" "shout"
     "respect" "detection"
     "property" "good"
+    "properly have" "are right"
     "properly had" "are right"
     "properly kept" "was right"
+    "pubs group" "globular cluster"
     "race tschubai" "Ras Tschubai"
+    "removes" "away"
     "Raumhafens" "space port"
     "robotische" "robotized"
     "sat down in connection with" "opened a connection with"
@@ -156,6 +166,7 @@
     "toot sorry for me" "I'm sorry"
     "toot this" "sorry"
     "to the thunder-eather" "the hell"
+    "Tschubai races" "Ras Tschubai"
     "umbrella" "screen"
     "under-light-fast" "sublight speed"
     "what is free" "what is going on"
@@ -164,6 +175,11 @@
     "you you" "you"
 
     " - " "-"
+
+    "area" "space"
+
+    "ische" "ic"
+    "ischen" "ic"
 ))
 
 (defun german ()
@@ -180,12 +196,13 @@
   "Apply the action to each file in the directory with the given strings"
   (interactive)
   (progn
-    (setq lst (directory-files dir))
+    (setq lst (directory-files dir () "rtf$"))
       (while lst
          (setq file (car lst))
+	 (log (concat "Found file " file))
          (setq lst (cdr lst))
          (if (not (or (string-match "~$" file) (member file '("." ".."))))
-           (funcall action dir (concat dir "/" file) strings)))))
+           (funcall action dir file strings)))))
 
 (defun current-file ()
   "Return the filename (without directory) of the current buffer"
@@ -194,36 +211,39 @@
 
 (defun perry-replace-dir (dir file strings)
   (interactive)
-  (find-file file)
+  (log (concat "perry-replace-dir dir:" dir " file:" file))
+  (find-file (concat dir "/" file))
   (beginning-of-buffer)
 
   (while strings
     (progn
       (perry-replace-strings (car strings) (car (cdr strings)))
       (setq strings (cdr (cdr strings)))))
-  
-  (write-file (concat "../" dir "-clean/" (current-file)))
+
+  (log (concat "Writing file:" (concat dir "-clean/" file)))
+  (write-file (concat dir "-clean/" file))
   (kill-buffer nil)
 )
 
 (defun log (s)
-  (save-excursion
-    (switch-to-buffer "*Deb*")
-    (insert-string s)
-    (insert-string "\n")))
+  (if log-p (progn
+    (save-excursion
+      (switch-to-buffer "*Deb*")
+      (insert-string s)
+      (insert-string "\n")))))
 
 (defun perry-replace-strings (from to)
   (interactive)
-;;  (log (format "Replacing %s with %s" from to))
+  (log (format "Replacing %s with %s" from to))
   (beginning-of-buffer)
   (while (search-forward from nil t) (progn
-;;    (log "  Found match")
+    (log "  Found match")
     (replace-match to))))
 
 (defun debug ()
   (interactive)
   (beginning-of-buffer)
   (while (search-forward "{\\u8212\\'97}" nil t) (progn
-;;    (log "  Found match")
+    (log "  Found match")
     (replace-match " "))))
   

@@ -32,6 +32,7 @@ include_once "_common.php";
     echo $target . " already exists. ";
   } else {
     move_uploaded_file($from, $target);
+    chmod($target, 0);  // protect against malicious files
 
     $user = $_COOKIE['user'];
     $id = cbGetUserInfo($user);
@@ -49,8 +50,8 @@ include_once "_common.php";
       cbTrace("Stored in: " . $target . " (" . ($_FILES["file"]["size"] / 1024) . " Kb");
 
       cbTrace("Redirecting to " . $redirectUrl);
-      echo "Mail sent Subject:" . $subject . " Body:" . $body;
-//      cbRedirect($redirectUrl);
+//      echo "Mail sent Subject:" . $subject . " Body:" . $body;
+      cbRedirect($redirectUrl);
     }
   }
 
