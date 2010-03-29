@@ -7,7 +7,7 @@
 ;; To run: M-x german or M-x english
 ;;
 
-(setq log-p t)
+(setq log-p ())
 
 (cond
   ;; Mac
@@ -29,12 +29,12 @@
 )
 
 ;; Production
-(setq german-dir (concat top-dir "/ge"))
-(setq english-dir (concat top-dir "/en"))
-
-;; Debug
-;;(setq german-dir (concat top-dir "/tmp"))
-;;(setq english-dir "../tmp")
+(if t (progn
+    (setq german-dir (concat top-dir "/ge"))
+    (setq english-dir (concat top-dir "/en")))
+  (setq german-dir (concat top-dir "/tmp"))
+  (setq english-dir (concat top-dir "/tmp"))
+)
 
 (setq german-replacements '(
     "\\-" ""
@@ -47,33 +47,36 @@
 
 
 (setq english-replacements '(
-    ;; longer strings first
-    "her/it/them" "h_er"
-    "her/its/their" "t_heir"
-    "she/it/they" "s_he"
-    "them/her/it" "t_hem"
-    "her/them" "t_hem"
-    "he/it" "h_e"
-    "her/it" "h_er"
-    "his/its" "h_is"
-    "him/it" "h_im"
-    "himself/itself" "h_imself"
-    "itself/themselves" "i_tself"
-    "she/it" "s_he"
-    "she/they" "s_he"
-    "them/her" "t_hem"
-    "you/they" "t_hey"
+    ;; longer strings first			    
+    "/" "é"
+    "heréitéthem" "her"
+    "heréitsétheir" "their"
+    "sheéitéthey" "she"
+    "theméheréit" "them"
+    "heréthem" "them"
+    "heéit" "he"
+    "heréit" "her"
+    "hiséits" "his"
+    "himéit" "him"
+    "himselféitself" "himself"
+    "itselféthemselves" "itself"
+    "sheéit" "she"
+    "sheéthey" "she"
+    "theméher" "them"
+    "youéthey" "they"
 
-    "h_er" "her"
-    "h_e" "he"
-    "h_is" "his"
-    "h_im" "him"
-    "i_tself" "itself"
-    "s_he" "she"
-    "t_heir" "their"
-    "t_hem" "them"
-    "t_hey" "they"
-    "h_himself" "himself"
+    "é" "/"
+
+;;    "h_er" "her"
+;;    "h_e" "he"
+;;    "h_is" "his"
+;;    "h_im" "him"
+;;    "i_tself" "itself"
+;;    "s_he" "she"
+;;    "t_heir" "their"
+;;    "t_hem" "them"
+;;    "t_hey" "they"
+;;    "h_himself" "himself"
 
     ", that" " that"
     "-loose" "less"
@@ -243,7 +246,6 @@
 (defun debug ()
   (interactive)
   (beginning-of-buffer)
-  (while (search-forward "{\\u8212\\'97}" nil t) (progn
+  (while (search-forward "heréit" nil t) (progn
     (log "  Found match")
-    (replace-match " "))))
-  
+    (replace-match "h_e"))))
