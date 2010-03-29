@@ -34,7 +34,7 @@
 
 ;; Debug
 ;;(setq german-dir (concat top-dir "/tmp"))
-;;(setq english-dir "../tmp")
+;;(setq english-dir (concat top-dir "../tmp"))
 
 (setq german-replacements '(
     "\\-" ""
