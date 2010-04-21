@@ -62,7 +62,9 @@
     "sheéit" "she"
     "sheéthey" "she"
     "theméher" "them"
+    "theméyou" "them"
     "youéthey" "they"
+    "yourétheir" "your"
 
     "é" "/"
 
@@ -85,19 +87,23 @@
     "area-harbor" "space port"
     "area-ship" "spaceship"
     "artgenossen" "compatriot"
+    "assets-gate" "cell activator"
     "attendants sie" "wait"
     "attendant" "wait"
     "attendants still" "wait"
     "ball-star-pile" "globular cluster" ;; Kugelsternhaufen
     "befell" "happened to"
+    "blind about after" "return to"
     "cross-ion" "Querion"
     "draw lots" "let's go" ;; los jetzt
     "draws lots" "less"
     "cantarische" "Cantaros"
-    "cell - vibration - assets - gate" "cell activator"
     "cell-assets-fool" "cell activator"
     "cell-assets-gate" "cell activator"
     "cell-assets-goal" "cell activator"
+    "cell - vibration - assets - gate" "cell activator"
+    "cell-vibration-assets-fool" "cell activator"
+    "cell-vibration-assets-goal" "cell activator"
     "clear become" "figure out" ;; klarwerden
     "country" "land"
     "drive around" "turn around"
@@ -115,9 +121,13 @@
     "gucky" "Pucky"
     "heavily" "hardly"
     "hyper-area" "hyperspace"
+    "in agreement" "agreed"
+    "in order" "alright"
+    "introduced itself" "imagined"
     "it gives" "there is"
     "it gave" "there was"
     "Galaktiker" "Galactics"
+    "group pubs" "globular cluster"
     "Kugelsternhaufens" "globular cluster"
     "Haluter" "Halutian"
     "heaven" "sky"
@@ -137,7 +147,6 @@
     "nature" "creature"
     "needed not" "didn't have"
     "one writes" "in"
-    "opposite" "against"
     "orientation" "detection"
     "Pedokräfte" "Pedopower"
     "reputation" "shout"
@@ -179,9 +188,6 @@
     " - " "-"
 
     "area" "space"
-
-    "ische" "ic"
-    "ischen" "ic"
 ))
 
 (defun german ()
