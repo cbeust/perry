@@ -14,7 +14,7 @@ $englishTitle = $_POST['englishTitle'];
 $author = $_POST['author'];
 $authorName = $_POST['fullName'];
 $authorEmail = $_POST['emailAddress'];
-$summary = $_POST['summary'];
+$unfilteredSummary = $_POST['summary'];
 $oldSummary = cbFindSummary($number);
 $cycle = $_POST['cycle'];
 $date = $_POST['date'];
@@ -22,6 +22,14 @@ $time = $_POST['time'];
 $published = $_POST['published'];
 
 echo cbHeader("Summary has been submitted");
+
+
+$replace1 = array("'");
+$replace2 = array("&apos;");
+$summary = str_replace($replace1, $replace2, $unfilteredSummary);
+
+cbTrace("User:" . $user . " Name:" . $name . " Admin:" . $admin);
+cbTrace("Summary:" . $summary);
 
 if ($admin) {
   $id = cbGetUserInfo($user);

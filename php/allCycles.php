@@ -16,8 +16,8 @@ You can also subscribe to the
 <a href="http://feeds.feedburner.com/PerryRhodanSummaries">
 RSS feed
 <img src="http://beust.com/pics/feed-icon16x16.png"
-     alt="http://feeds.feedburner.com/PerryRhodanSummaries" border="0"/>
-</a>
+     alt="http://feeds.feedburner.com/PerryRhodanSummaries" border="0"/></a>,
+ <a href="http://twitter.com/PerryRhodanUS">follow us on Twitter</a> 
  or jump directly to an issue:
 
 <table align="center">

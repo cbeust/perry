@@ -1,9 +1,9 @@
 <?
 
-$username="cedric";
-$password="nyNnW8Kx";
-$database="cedric_logs";
-$host="db63a.pair.com";
+$username="db98219";
+$password="lunacabin";
+$database="db98219_perry";
+$host="internal-db.s98219.gridserver.com";
 
 
 ?>

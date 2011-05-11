@@ -176,6 +176,7 @@ function cbUpdateHeft($number, $germanTitle, $author)
             SET title = '$germanTitle', author = '$author'
             WHERE number = '$number'";
   cbQuery($query);
+
 }
 
 function s($str) {
@@ -247,6 +248,9 @@ function cbUpdateSummaries($number, $germanTitle, $english_title,
   }
 */
 
+  // Update Twitter
+    // Tweet
+  cbTweetSummary($number, $english_title);
 }
 
 function cbSetCycleGermanTitle($number, $germanTitle) {

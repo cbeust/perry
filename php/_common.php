@@ -4,6 +4,15 @@ include_once "_config.php";
 include_once "_orm.php";
 include_once "_permissions.php";
 
+function cbTweetSummary($number, $title) {
+  global $DISPLAY_SUMMARY_URL;
+
+  $emailTo = "PerryRhodanUs@twittermail.com";
+  $url = $DISPLAY_SUMMARY_URL . "?number=" . $number;
+  $message = $number . ": " . $title . "       " . $url;
+  $ok = mail($emailTo, "", $message, "");
+}
+
 function e($s) {
   echo $s . "\n";
 }
@@ -48,8 +57,9 @@ google_color_text = "FFCC00";
 }
 
 function cbCss() {
+  global $CSS_URL;
   return "\n"
-      . '<link rel="stylesheet" href="http://beust.com/perry/summary.css" >'
+      . '<link rel="stylesheet" href="' . $CSS_URL . '" >'
       . "\n"
       . '<link rel="stylesheet" href="http://beust.com/beust.css" >'
       . "\n"

@@ -13,7 +13,7 @@ echo
    . ">\n"
    . "  <channel>\n"
    . "    <title>Perry Rhodan Summaries</title>\n"
-   . "    <link>http://beust.com/perry</link>\n"
+   . "    <link>" . $MAIN_URL . "</link>\n"
    . "    <description>Summaries of Perry Rhodan cycles in English</description>\n"
    . "    <dc:language>en-us</dc:language>\n"
    . "    <dc:creator>cedric@beust.com</dc:creator>\n"

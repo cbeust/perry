@@ -11,7 +11,7 @@ if ($debug) {
 
 $COOKIE_EXPIRATION = time() + 60*60*24*364;  // 1 year
 
-$MAIN_URL = "http://beust.com/perry/";
+$MAIN_URL = "http://perryrhodan.us/";
 
 $ALL_CYCLES_URL = $MAIN_URL . "php/allCycles.php";
 $QUERY_SUMMARY_URL = $MAIN_URL . "php/querySummary.php";

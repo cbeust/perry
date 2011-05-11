@@ -7,13 +7,11 @@
 ;; To run: M-x german or M-x english
 ;;
 
-(setq log-p ())
-
 (cond
   ;; Mac
   ((equal "cbeust-macbookpro.local" (system-name)) (progn
     (setq system "mac")
-    (setq top-dir "/Users/cbeust/Documents/Perry Rhodan/current")))
+    (setq german-top-dir "/Users/cbeust/Documents/perry-rhodan")))
   ;; PCW
   ((equal "CBEUST22-CORP" (system-name)) (progn
     (setq system "pcw")
@@ -28,56 +26,45 @@
     (setq top-dir "unknown")))
 )
 
-(if t (progn
-    (setq german-dir (concat top-dir "/ge"))
-    (setq english-dir (concat top-dir "/en")))
-  (setq german-dir (concat top-dir "/tmp"))
-  (setq english-dir (concat top-dir "/tmp"))
-)
+;;(setq german-dir (concat top-dir "/1400-1499"))
+(setq german-dir (concat top-dir "/ge"))
 
 (setq german-replacements '(
-    "\\-" ""
     "-" " - "
     "\\emdash" " - "
     "{\\u8212\\'97}" " "
-    "\\'bb" "\""
-    "\\'ab" "\""
 ))
 
+(setq english-dir (concat top-dir "/en"))
 
 (setq english-replacements '(
-    ;; longer strings first			    
-    "/" "é"
-    "heréitéthem" "her"
-    "heréitsétheir" "their"
-    "sheéitéthey" "she"
-    "theméheréit" "them"
-    "heréthem" "them"
-    "heéit" "he"
-    "heréit" "her"
-    "hiséits" "his"
-    "himéit" "him"
-    "himselféitself" "himself"
-    "itselféthemselves" "itself"
-    "sheéit" "she"
-    "sheéthey" "she"
-    "theméher" "them"
-    "theméyou" "them"
-    "youéthey" "they"
-    "yourétheir" "your"
+    ;; longer strings first
+    "her/it/them" "h_er"
+    "her/its/their" "t_heir"
+    "she/it/they" "s_he"
+    "them/her/it" "t_hem"
+    "her/them" "t_hem"
+    "he/it" "h_e"
+    "her/it" "h_er"
+    "his/its" "h_is"
+    "him/it" "h_im"
+    "himself/itself" "h_imself"
+    "itself/themselves" "i_tself"
+    "she/it" "s_he"
+    "she/they" "s_he"
+    "them/her" "t_hem"
+    "you/they" "t_hey"
 
-    "é" "/"
-
-;;    "h_er" "her"
-;;    "h_e" "he"
-;;    "h_is" "his"
-;;    "h_im" "him"
-;;    "i_tself" "itself"
-;;    "s_he" "she"
-;;    "t_heir" "their"
-;;    "t_hem" "them"
-;;    "t_hey" "they"
-;;    "h_himself" "himself"
+    "h_er" "her"
+    "h_e" "he"
+    "h_is" "his"
+    "h_im" "him"
+    "i_tself" "itself"
+    "s_he" "she"
+    "t_heir" "their"
+    "t_hem" "them"
+    "t_hey" "they"
+    "h_himself" "himself"
 
     ", that" " that"
     "-loose" "less"
@@ -87,25 +74,19 @@
     "area-harbor" "space port"
     "area-ship" "spaceship"
     "artgenossen" "compatriot"
-    "assets-gate" "cell activator"
     "attendants sie" "wait"
     "attendant" "wait"
     "attendants still" "wait"
-    "ball-star-pile" "globular cluster" ;; Kugelsternhaufen
     "befell" "happened to"
-    "blind about after" "return to"
     "cross-ion" "Querion"
     "draw lots" "let's go" ;; los jetzt
     "draws lots" "less"
     "cantarische" "Cantaros"
+    "cell - vibration - assets - gate" "cell activator"
     "cell-assets-fool" "cell activator"
     "cell-assets-gate" "cell activator"
     "cell-assets-goal" "cell activator"
-    "cell - vibration - assets - gate" "cell activator"
-    "cell-vibration-assets-fool" "cell activator"
-    "cell-vibration-assets-goal" "cell activator"
     "clear become" "figure out" ;; klarwerden
-    "country" "land"
     "drive around" "turn around"
     "drives around" "turns around"
     "drove around" "turned around"
@@ -121,23 +102,17 @@
     "gucky" "Pucky"
     "heavily" "hardly"
     "hyper-area" "hyperspace"
-    "in agreement" "agreed"
-    "in order" "alright"
-    "introduced itself" "imagined"
     "it gives" "there is"
     "it gave" "there was"
     "Galaktiker" "Galactics"
-    "group pubs" "globular cluster"
     "Kugelsternhaufens" "globular cluster"
     "Haluter" "Halutian"
     "heaven" "sky"
     "husbands" "men"
     "innern" "inside"
-    "introduce himself" "imagine"
     "introduce itself" "imagine"
     "is free with" "is going on with"
     "it gives" "there is"
-    "like many" "how many"
     "long-distance-orientation" "long distance detection"
     "marked" "Excellent" ;; Ausgezeichnet
     "marsianische" "Martian"
@@ -146,18 +121,15 @@
     "most upper" "supreme"
     "nature" "creature"
     "needed not" "didn't have"
-    "one writes" "in"
+    "opposite" "against"
     "orientation" "detection"
     "Pedokräfte" "Pedopower"
     "reputation" "shout"
     "respect" "detection"
     "property" "good"
-    "properly have" "are right"
     "properly had" "are right"
     "properly kept" "was right"
-    "pubs group" "globular cluster"
     "race tschubai" "Ras Tschubai"
-    "removes" "away"
     "Raumhafens" "space port"
     "robotische" "robotized"
     "sat down in connection with" "opened a connection with"
@@ -177,7 +149,6 @@
     "toot sorry for me" "I'm sorry"
     "toot this" "sorry"
     "to the thunder-eather" "the hell"
-    "Tschubai races" "Ras Tschubai"
     "umbrella" "screen"
     "under-light-fast" "sublight speed"
     "what is free" "what is going on"
@@ -185,9 +156,9 @@
     "whether" "maybe"
     "you you" "you"
 
-    " - " "-"
-
-    "area" "space"
+    "isch" "ic"
+    "ische" "ic"
+    "ischen" "ic"
 ))
 
 (defun german ()
@@ -204,13 +175,12 @@
   "Apply the action to each file in the directory with the given strings"
   (interactive)
   (progn
-    (setq lst (directory-files dir () "rtf$"))
+    (setq lst (directory-files dir))
       (while lst
          (setq file (car lst))
-	 (log (concat "Found file " file))
          (setq lst (cdr lst))
          (if (not (or (string-match "~$" file) (member file '("." ".."))))
-           (funcall action dir file strings)))))
+           (funcall action dir (concat dir "/" file) strings)))))
 
 (defun current-file ()
   "Return the filename (without directory) of the current buffer"
@@ -219,38 +189,36 @@
 
 (defun perry-replace-dir (dir file strings)
   (interactive)
-  (log (concat "perry-replace-dir dir:" dir " file:" file))
-  (find-file (concat dir "/" file))
+  (find-file file)
   (beginning-of-buffer)
 
   (while strings
     (progn
       (perry-replace-strings (car strings) (car (cdr strings)))
       (setq strings (cdr (cdr strings)))))
-
-  (log (concat "Writing file:" (concat dir "-clean/" file)))
-  (write-file (concat dir "-clean/" file))
+  
+  (write-file (concat "../" dir "-clean/" (current-file)))
   (kill-buffer nil)
 )
 
 (defun log (s)
-  (if log-p (progn
-    (save-excursion
-      (switch-to-buffer "*Deb*")
-      (insert-string s)
-      (insert-string "\n")))))
+  (save-excursion
+    (switch-to-buffer "*Deb*")
+    (insert-string s)
+    (insert-string "\n")))
 
 (defun perry-replace-strings (from to)
   (interactive)
-  (log (format "Replacing %s with %s" from to))
+;;  (log (format "Replacing %s with %s" from to))
   (beginning-of-buffer)
   (while (search-forward from nil t) (progn
-    (log "  Found match")
+;;    (log "  Found match")
     (replace-match to))))
 
 (defun debug ()
   (interactive)
   (beginning-of-buffer)
-  (while (search-forward "heréit" nil t) (progn
-    (log "  Found match")
-    (replace-match "h_e"))))
+  (while (search-forward "{\\u8212\\'97}" nil t) (progn
+;;    (log "  Found match")
+    (replace-match " "))))
+  
