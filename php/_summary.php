@@ -15,7 +15,7 @@ function cbDisplaySummary($number) {
   $summaryRow = cbFindSummaryRow($number);
   $summaryCount = mysql_numrows($summaryRow);
 
-  $url = sprintf("http://perry-rhodan.net/pics/tibis/%04dtibi.jpg", $number);
+  $url = sprintf("http://perry-kotlin.app.heroku/api/covers/%d", $number);
 
   $date = null;
   if ($summaryCount > 0) {
